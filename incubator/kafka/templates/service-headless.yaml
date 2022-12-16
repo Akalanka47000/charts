@@ -16,6 +16,12 @@ spec:
 {{- if .Values.headless.targetPort }}
     targetPort: {{ .Values.headless.targetPort }}
 {{- end }}
-  clusterIP: None
+{{- if .Values.headless.loadBalancerIP }}
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: {{ .Values.headless.loadBalancerIP }} 
+{{- else }}
+  ClusterIP: None
+{{- end }}
   selector:
   {{- include "kafka.broker.matchLabels" . | nindent 4 }}

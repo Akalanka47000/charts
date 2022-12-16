@@ -2,5 +2,5 @@ dependencies:
 - name: kafka
   repository: https://charts.helm.sh/incubator
   version: 0.21.2
-digest: sha256:d19bc31b4c6e21092ab54321cd921d048c65f11fb768a6865adb9779e95242c0
-generated: "2020-10-30T00:43:01.899435-04:00"
+digest: sha256:6457d6ca0db8242605afeb5c7dec16c4ff1f827aac5cd563c4d0ca759acf0224
+generated: "2022-12-15T22:05:08.5350223+05:30"

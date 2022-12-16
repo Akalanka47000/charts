@@ -52,7 +52,7 @@ service:
 ## overrideBootstrapServers: "PLAINTEXT://dozing-prawn-kafka-headless:9092"
 ## Charts uses Kafka Coordinator Master Election: https://docs.confluent.io/current/schema-registry/docs/design.html#kafka-coordinator-master-election
 kafkaStore:
-  overrideBootstrapServers: ""
+  overrideBootstrapServers: "PLAINTEXT://kafka-headless:9092"
   # By Default uses Release Name, but can be overridden.  Which means each release is its own group of
   # Schema Registry workers.  You can have multiple groups talking to same Kafka Cluster
   overrideGroupId: ""
@@ -109,7 +109,7 @@ sasl:
 ## Kafka Settings
 kafka:
   ## This is enabled only to allow installations of this chart without arguments
-  enabled: true
+  enabled: false
   ## Override kafka settings for default installations
   configurationOverrides:
     # Needed to run with 1 Kafka Broker
@@ -138,16 +138,16 @@ ingress:
 
 ## External Nodeport/LoadBalancer for Cloud Providers
 external:
-  enabled: false
+  enabled: true
   type: LoadBalancer
   servicePort: 443
-  loadBalancerIP: ""
+  loadBalancerIP: "20.82.64.13"
   nodePort: ""
   annotations: {}
 
 ## Provide JMX Port
 jmx:
-  enabled: true
+  enabled: false
   port: 5555
 
 ## Prometheus Exporter Configuration
